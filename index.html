@@ -3,121 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techy Software</title>
-    <!-- CSS for styling -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-        nav a {
-            color: #333;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #fff;
-            margin: 0 5px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-            margin: 0 5px;
-        }
-        .button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <title>Techy Software Company</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Techy Software</h1>
-        <nav>
-            <a href="#about">About Us</a>
-            <a href="#products">Products/Services</a>
-            <a href="#contact">Contact Us</a>
-        </nav>
+        <div class="container">
+            <h1>Techy Software</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-    <div class="container">
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget condimentum arcu. Donec in consequat augue. Morbi vel suscipit quam. Sed fringilla, arcu at efficitur vestibulum, turpis magna tincidunt magna, ac volutpat nisl odio sed felis.</p>
-        </section>
-
-        <section id="products">
-            <h2>Products/Services</h2>
-            <ul>
-                <li>Product 1</li>
-                <li>Product 2</li>
-                <li>Product 3</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: info@techysoftware.com</p>
-            <p>Phone: 123-456-7890</p>
-            <div class="social-icons">
-                <a href="https://facebook.com/techysoftware" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
-                <a href="https://twitter.com/techysoftware" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
-                <!-- Add more social media icons as needed -->
+    
+    <main>
+        <section id="home" class="section">
+            <div class="container">
+                <h2>Welcome to Techy Software</h2>
+                <p>Your go-to destination for cutting-edge software solutions.</p>
+                <div class="google-photos">
+                    <!-- Google Photos Placeholder -->
+                    <img src="google_photos_placeholder.jpg" alt="Google Photos Placeholder">
+                </div>
             </div>
-            <form action="submit-feedback.php" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-                <button type="submit" class="button">Submit</button>
-            </form>
         </section>
+        
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>We are a team of passionate developers dedicated to delivering innovative software products.</p>
+                <div class="google-photos">
+                    <!-- Google Photos Placeholder -->
+                    <img src="google_photos_placeholder.jpg" alt="Google Photos Placeholder">
+                </div>
+            </div>
+        </section>
+        
+        <!-- More sections for services, portfolio, etc. -->
+        
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Have any questions or feedback? Reach out to us!</p>
+                <form action="#" method="POST" class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techy Software Company. All rights reserved.</p>
+            <div class="social-media">
+                <!-- Social Media Links -->
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for feedback submission confirmation -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Thank you for your feedback!</p>
+        </div>
     </div>
 
-    <footer>
-        &copy; 2024 Techy Software. All rights reserved.
-    </footer>
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

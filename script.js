@@ -1,40 +1,67 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+document.addEventListener('DOMContentLoaded', function () {
+  // Smooth scrolling for navigation links
+  const navLinks = document.querySelectorAll('nav ul li a');
 
-const app = express();
+  navLinks.forEach(link => {
+      link.addEventListener('click', function (event) {
+          event.preventDefault();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/your_database', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+          if (targetSection) {
+              window.scrollTo({
+                  top: targetSection.offsetTop - 50,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
 
-// Customer Model
-const Customer = mongoose.model('Customer', {
-  name: String,
-  email: String,
-  // Add more fields as needed
+  // Form submission handler
+  const form = document.querySelector('.contact-form');
+
+  form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Validate form fields
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+
+      if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+          alert('Please fill out all fields.');
+          return;
+      }
+
+      // Prepare form data
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach(function (value, key) {
+          data[key] = value;
+      });
+
+      // Simulate form submission (for demonstration)
+      console.log('Form submitted:', data);
+
+      // Clear form fields after submission
+      form.reset();
+
+      // Show feedback submission confirmation modal
+      const modal = document.getElementById('modal');
+      modal.style.display = 'block';
+
+      // Close modal after 3 seconds
+      setTimeout(function () {
+          modal.style.display = 'none';
+      }, 3000);
+  });
+
+  // Close modal when clicking outside of it
+  window.addEventListener('click', function (event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
 });
-
-// Routes
-app.post('/api/customers', async (req, res) => {
-  try {
-    const { name, email } = req.body;
-    const customer = new Customer({ name, email });
-    await customer.save();
-    res.status(201).json({ message: 'Customer details saved successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
